@@ -12899,6 +12899,8 @@ MonoBehaviour:
   physicsBody: {fileID: 1123144310}
   horizontalAxis: Horizontal
   verticalAxis: Vertical
+  playerAnimator: {fileID: 1123144311}
+  playerSprite: {fileID: 1123144308}
 --- !u!212 &1123144308
 SpriteRenderer:
   m_ObjectHideFlags: 0
