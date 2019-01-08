@@ -2,8 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stationenemy : MonoBehaviour {
+public class MovingEnemy : MonoBehaviour {
 
+    public float speed;
+    public Rigidbody2D physicsBody;
+    public Collider2D playerCollider;
+    private Transform target;
+
+    // Use this for initialization
+	void Start (){
+        target = GameObject.Find("Player").transform;
+
+	}
+
+    void Update()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Check if the thing that we collided with
