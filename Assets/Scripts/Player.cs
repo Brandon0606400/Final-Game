@@ -13,6 +13,10 @@ public class Player : MonoBehaviour {
     public Rigidbody2D physicsBody;
     public string horizontalAxis = "Horizontal";
     public string verticalAxis = "Vertical";
+    public string shootButtonUp = "shootButtonUp";
+    public string shootButtonDown = "shootButtonDown";
+    public string shootButtonLeft = "shootButtonLeft";
+    public string shootButtonRight = "shootButtonRight";
 
     public Animator playerAnimator;
     public SpriteRenderer playerSprite;
@@ -59,7 +63,7 @@ public class Player : MonoBehaviour {
         }
 
         //Shooting Code
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetButtonDown(shootButtonUp))
 
         {
 
@@ -68,7 +72,33 @@ public class Player : MonoBehaviour {
             b.GetComponent<Rigidbody2D>().AddForce(transform.up * 1000);
 
         }
+        else if (Input.GetButtonDown(shootButtonDown))
 
+        {
+
+            GameObject b = (GameObject)(Instantiate(bullet, transform.position + transform.up * -1.5f, Quaternion.identity));
+
+            b.GetComponent<Rigidbody2D>().AddForce(transform.up * -1000);
+
+        }
+        else if (Input.GetButtonDown(shootButtonRight))
+
+        {
+
+            GameObject b = (GameObject)(Instantiate(bullet, transform.position + transform.right * 1.5f, Quaternion.identity));
+
+            b.GetComponent<Rigidbody2D>().AddForce(transform.right * 1000);
+
+        }
+        else if (Input.GetButtonDown(shootButtonLeft))
+
+        {
+
+            GameObject b = (GameObject)(Instantiate(bullet, transform.position + transform.right * -1.5f, Quaternion.identity));
+
+            b.GetComponent<Rigidbody2D>().AddForce(transform.right * -1000);
+
+        }
     }
 
     public void Kill()

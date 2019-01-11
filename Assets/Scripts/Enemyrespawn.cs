@@ -33,9 +33,10 @@ public class Enemyrespawn : MonoBehaviour
             //It will create a new Enemy of the same class, at this position.
             Enemy.transform.position = transform.position;
 
-            Instantiate(Enemy);
-            LastEnemy = GameObject.Find(Enemy.name + "(Clone)");
-            LastEnemy.name = EnemyName;
+            GameObject newObject = Instantiate(Enemy);
+            newObject.name = EnemyName;
+            newObject.GetComponent<MovingEnemy>().spawnpoint = this;
+
             //My enemy won't be dead anymore.
             Death = false;
             //Timer will restart.
