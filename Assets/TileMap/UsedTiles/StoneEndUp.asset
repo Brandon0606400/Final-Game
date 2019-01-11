@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Wall
+  m_Name: StoneEndUp
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 65727166f2b0a554ea9f7e3cd1c65f3f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 46ab930de472d1044bf78d8aac69e861, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
