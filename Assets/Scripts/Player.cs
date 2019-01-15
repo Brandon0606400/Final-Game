@@ -35,7 +35,7 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+                
         //Get Axis input from unity
         float leftRight = Input.GetAxis(horizontalAxis);
         float upDown = Input.GetAxis(verticalAxis);
