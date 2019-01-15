@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Stationenemy : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -18,6 +19,7 @@ public class Stationenemy : MonoBehaviour {
             //We did hit the player
             //Kill them
             playerScript.Kill();
+            
         }
     }
 

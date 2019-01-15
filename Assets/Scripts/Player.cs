@@ -22,6 +22,9 @@ public class Player : MonoBehaviour {
     public SpriteRenderer playerSprite;
     public Collider2D playerCollider;
 
+    public AudioSource Shoot;
+    public AudioSource Death;
+
     // Variable to keep a reference to the lives display object
     public Lives LivesObject;
 
@@ -69,6 +72,8 @@ public class Player : MonoBehaviour {
 
             GameObject b = (GameObject)(Instantiate(bullet, transform.position + transform.up * 1.5f, Quaternion.identity));
 
+            Shoot.Play();
+
             b.GetComponent<Rigidbody2D>().AddForce(transform.up * 1000);
 
         }
@@ -77,6 +82,8 @@ public class Player : MonoBehaviour {
         {
 
             GameObject b = (GameObject)(Instantiate(bullet, transform.position + transform.up * -1.5f, Quaternion.identity));
+
+            Shoot.Play();
 
             b.GetComponent<Rigidbody2D>().AddForce(transform.up * -1000);
 
@@ -87,6 +94,8 @@ public class Player : MonoBehaviour {
 
             GameObject b = (GameObject)(Instantiate(bullet, transform.position + transform.right * 1.5f, Quaternion.identity));
 
+            Shoot.Play();
+
             b.GetComponent<Rigidbody2D>().AddForce(transform.right * 1000);
 
         }
@@ -95,6 +104,8 @@ public class Player : MonoBehaviour {
         {
 
             GameObject b = (GameObject)(Instantiate(bullet, transform.position + transform.right * -1.5f, Quaternion.identity));
+
+            Shoot.Play();
 
             b.GetComponent<Rigidbody2D>().AddForce(transform.right * -1000);
 
@@ -126,10 +137,11 @@ public class Player : MonoBehaviour {
 
             //First ask unity what the current level is
             Scene currentLevel = SceneManager.GetActiveScene();
-
             //Second, tell unity to load the current level again
             //by passing the build index of our level
             SceneManager.LoadScene(currentLevel.buildIndex);
+
+            Death.Play();
         }
     }
 

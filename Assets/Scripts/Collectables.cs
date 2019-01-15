@@ -8,6 +8,8 @@ public class Collectables : MonoBehaviour {
     //      Public so we can drag and drop
     public Score scoreObject;
 
+    public AudioSource Pickup;
+
     // Variable to hold the coin's value
     //      Public so we can change the it in the editor
     public int collectableValue;
@@ -39,6 +41,8 @@ public class Collectables : MonoBehaviour {
         if (playerScript)
         {
             // We hit the player!
+
+            Pickup.Play();
 
             // Add to the score based on our value
             scoreObject.AddScore(collectableValue);

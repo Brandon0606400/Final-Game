@@ -10,6 +10,8 @@ public class Enemyrespawn : MonoBehaviour
     public GameObject Enemy;
     public string EnemyName;
     GameObject LastEnemy;
+    public AudioSource DeathAudio;
+
     // Use this for initialization
     void Start()
     {
@@ -36,6 +38,7 @@ public class Enemyrespawn : MonoBehaviour
             GameObject newObject = Instantiate(Enemy);
             newObject.name = EnemyName;
             newObject.GetComponent<MovingEnemy>().spawnpoint = this;
+            newObject.GetComponent<MovingEnemy>().EnemyHurt = DeathAudio;
 
             //My enemy won't be dead anymore.
             Death = false;

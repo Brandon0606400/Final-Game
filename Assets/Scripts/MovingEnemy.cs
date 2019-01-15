@@ -9,9 +9,11 @@ public class MovingEnemy : MonoBehaviour {
     public Collider2D playerCollider;
     private Transform target;
     public Enemyrespawn spawnpoint;
+    
+    public AudioSource EnemyHurt;
 
     // Use this for initialization
-	void Start (){
+    void Start (){
         // Finds the player in the level
         target = GameObject.Find("Player").transform;
 
@@ -43,6 +45,10 @@ public class MovingEnemy : MonoBehaviour {
     {
         //gets reference to script called "GameManager", and calls the SpawnAlien() function to respawn itself
         spawnpoint.Death = true;
+
+        EnemyHurt.Play();
+
+        
 
         //destroys itself after calling SpawnAlien() function
         Destroy(gameObject);
